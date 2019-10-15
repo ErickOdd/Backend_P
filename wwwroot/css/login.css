@@ -1,0 +1,26 @@
+.login-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: .25rem;
+}
+
+.login-header-logo {
+    width: 5rem;
+}
+
+.login {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 20rem;
+}
+
+
+@media(min-width:540px) {
+    .login {
+        max-width: 25rem;
+    }
+}
+

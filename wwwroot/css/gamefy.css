@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700&display=swap');
+
+html {
+    font-family: 'Nunito', sans-serif;
+}
+
+.aba--financeiro {
+    background-color: blue;
+}
+
+.aba--alunos {
+    background-color: yellow;
+}
+
+.aba--administracao {
+    background-color: red;
+}
+
+.aba--home {    
+    background-color: green;
+}
+
+.abas {
+    display: flex;
+}
+
+.aba {
+    flex-grow: 1;
+    border-radius: 0 0 4px 4px;
+    height: 2.7rem;
+}
+
+.container {
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-input {
+    font-family: 'Nunito', sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: .3rem .5rem;
+    box-sizing: border-box;
+    margin: .5rem 0;
+    grid-column: span 2;
+}
+
+.form-input--checkbox {
+    margin-right: .25rem;  
+}
+
+.form--label {
+    color: #434343;
+    grid-column: span 2;
+}
+
+.form-message--error {
+    border: 1px solid #a1e7d7;
+    border-radius: 4px;
+    grid-column: span 2;
+    margin-bottom: .5rem;
+    text-align: center;
+    padding: 0.7rem .5rem;
+    color: #434343;
+    cursor: default;
+    transition: .25s;
+}
+
+.form-message--error:hover {
+    background-color: #ebfff9;
+    transition: .25s;
+}
+
+.table {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table-head {
+    font-weight: bold;
+}
+
+.table-head tr {
+    background-color: #ddd;
+}
+
+.table-head td {
+    padding: .8rem .2rem;
+}
+
+.table-body tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color .25s;
+}
+
+.table-body tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color .25s;
+}
+
+.button {
+    padding: .5rem;
+    border-radius: 30px;
+    border: none;
+    transition: background-color .25s;
+    grid-column: span 2;
+    font-family: 'Nunito', sans-serif;
+    margin: .5rem 0;
+}
+
+.button--login {
+    color: #fff;
+    background-color: #1db954;
+}
+
+.button--login:hover {
+    background-color: #1ed760;
+    transition: .25s;
+}
+
+
+@media(min-width:540px) {
+    .button {
+        width: 6rem;
+        grid-column: auto;
+        justify-self: right;
+    }
+
+    .form--label {
+        grid-column: auto;
+    }
+}
+
