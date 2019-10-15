@@ -1,6 +1,6 @@
 using System;
 
-namespace CulturaInglesa.Api.Models{
+namespace Backend_P.Models{
     public class FundoCapital
     {
         public FundoCapital()

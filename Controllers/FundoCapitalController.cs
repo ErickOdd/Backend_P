@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using CulturaInglesa.Api.Models;
-using CulturaInglesa.Api.Repositories;
+using Backend_P.Models;
+using Backend_P.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CulturaInglesa.Api.Controllers
+namespace Backend_P.Controllers
 {
     public class FundoCapitalController: Controller
     {

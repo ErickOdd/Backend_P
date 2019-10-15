@@ -1,9 +1,9 @@
-using CulturaInglesa.Api.Models;
+using Backend_P.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CulturaInglesa.Api.Repositories
+namespace Backend_P.Repositories
 {
     public class FundoCapitalRepository: IFundoCapitalRepository
     {
