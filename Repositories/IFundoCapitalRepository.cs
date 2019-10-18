@@ -9,6 +9,7 @@ namespace Backend_P.Repositories
         void Adicionar(FundoCapital fundo);
 
         void Alterar(FundoCapital fundo);
+        
         IEnumerable<FundoCapital> ListarFundos();
 
         FundoCapital ObterPorId(Guid id);

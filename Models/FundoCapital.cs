@@ -7,6 +7,7 @@ namespace Backend_P.Models{
         {
             Id = Guid.NewGuid();
         }
+        
         public Guid Id { get; }
 
         public string nome { get; set; }

@@ -9,36 +9,29 @@ namespace Backend_P.Repositories
     {
         private readonly List<FundoCapital> _storage;
 
-        public FundoCapitalRepository()
-        {
+        public FundoCapitalRepository(){
             _storage = new List<FundoCapital>();
         }
 
-        void IFundoCapitalRepository.Adicionar(FundoCapital fundo)
-        {
+        void IFundoCapitalRepository.Adicionar(FundoCapital fundo){
             _storage.Add(fundo);
         }
-        void IFundoCapitalRepository.Alterar(FundoCapital fundo)
-        {
+
+        void IFundoCapitalRepository.Alterar(FundoCapital fundo){
             var index = _storage.FindIndex(0,1,x=> x.Id == fundo.Id);
             _storage[index] = fundo;
         }
 
-        IEnumerable<FundoCapital> IFundoCapitalRepository.ListarFundos()
-        {
+        IEnumerable<FundoCapital> IFundoCapitalRepository.ListarFundos(){
             return _storage;
         }
 
-        FundoCapital IFundoCapitalRepository.ObterPorId(Guid id)
-        {
+        FundoCapital IFundoCapitalRepository.ObterPorId(Guid id){
             return _storage.FirstOrDefault(x=> x.Id == id);
         }
 
-        void IFundoCapitalRepository.RemoverFundo(FundoCapital fundo)
-        {
-            
+        void IFundoCapitalRepository.RemoverFundo(FundoCapital fundo){
             _storage.Remove(fundo);
-            
         }
     }
 }
