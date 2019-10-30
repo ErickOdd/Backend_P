@@ -7,7 +7,7 @@ namespace Backend_P.Models{
             status = Status.Engaged;
         }
         
-        public int Id { get; }
+        public int Id { get; set; }
 
         public int card {get; set;}
 
@@ -17,9 +17,9 @@ namespace Backend_P.Models{
 
         public string email {get;set;}
 
-        public string classe { get; set; }
+        public string classRoom { get; set; }
 
-        public DateTime[][] registro { get; set; }
+        public DateTime[][] record { get; set; }
 
         public Status status;
         public enum Status { Engaged, Vacation, Locked, Graduated}

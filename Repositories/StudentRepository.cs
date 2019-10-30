@@ -22,16 +22,18 @@ namespace Backend_P.Repositories
             _storage[index] = student;
         }
 
-        IEnumerable<Student> IStudentRepository.List(Student student){
+        //EU PAREI AQUI <<<<<<<<<<<<<<<<<<<<<<<<-------- IMPLEMENTAR A INTERFACE
+        
+        IEnumerable<Student> IStudentRepository.List(){
             return _storage;
         }
 
-        Student IStudentRepository.ObterPorId(Guid id){
+        Student IStudentRepository.ById(int id){
             return _storage.FirstOrDefault(x=> x.Id == id);
         }
 
-        void IStudentRepository.Removerstuden(Student studen){
-            _storage.Remove(studen);
+        void IStudentRepository.Remove(Student student){
+            _storage.Remove(student);
         }
     }
 }

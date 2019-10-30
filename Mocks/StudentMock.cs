@@ -4,6 +4,7 @@ namespace Backend_P.Models{
     public class StudentMock: Student
     {
         StudentMock(){
+            
             Id = 666666;
             card = 666;
             name = "Lucifer de Jesus Costa ";

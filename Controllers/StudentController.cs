@@ -6,61 +6,64 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Backend_P.Controllers
 {
-    public class FundoCapitalController: Controller
+    public class StudentController: Controller
     {
 
-        private readonly IFundoCapitalRepository _repositorio;
+        private readonly IStudentRepository _repositorio;
 
-        public FundoCapitalController(IFundoCapitalRepository repositorio){
+        public StudentController(IStudentRepository repositorio){
             _repositorio = repositorio;
         }
 
-        [HttpGet("v1/fundoscapital")]
-        public IActionResult ListarFundos(){
-            return Ok(_repositorio.ListarFundos());
+        [HttpGet("v1/student")]
+        public IActionResult ListStudents(){
+            return Ok(_repositorio.List());
         }
    
-        [HttpPost("v1/fundoscapital/")]
-        public IActionResult AdicionarFundo([FromBody]FundoCapital fundo){
-            _repositorio.Adicionar(fundo);
+        [HttpPost("v1/student/")]
+        public IActionResult AddStudent([FromBody] Student student){
+            _repositorio.Add(student);
             return Ok();
         }
 
-        [HttpPut("v1/fundoscapital/{id}")]
-        public IActionResult AlterarFundo(Guid id,[FromBody]FundoCapital fundo){
-            var fundoAntigo = _repositorio.ObterPorId(id);
-            if (fundoAntigo == null){
+        [HttpGet("v1/student/{id}")]
+        public IActionResult StudentById(int id, [FromBody] Student student){
+            var studentAntigo = _repositorio.ById(id);
+            if (studentAntigo == null){
                 return NotFound();
             }
-            fundoAntigo.nome = fundo.nome;
-            fundoAntigo.valorAtual = fundo.valorAtual;
-            fundoAntigo.valorNecessario = fundo.valorNecessario;
-            fundoAntigo.dataResgate = fundo.dataResgate;
-            _repositorio.Alterar(fundoAntigo);
+            return Ok(studentAntigo);
+        }
+
+        [HttpPut("v1/student/{id}")]
+        public IActionResult ChangeStudentData(int id, [FromBody] Student student){
+            var studentAntigo = _repositorio.ById(id);
+            if (studentAntigo == null){
+                return NotFound();
+            }
+
+            studentAntigo.age = student.age;
+            studentAntigo.card = student.card;
+            studentAntigo.classRoom = student.classRoom;
+            studentAntigo.email = student.email;
+            //Rever a necessidade do SET no ID
+            studentAntigo.Id = student.Id;
+            studentAntigo.name = student.name;
+            studentAntigo.record = student.record;
+            studentAntigo.status = student.status;
+
+            _repositorio.ChangeData(studentAntigo);
             return Ok();
         }
 
-        [HttpGet("v1/fundoscapital/{id}")]
-        public IActionResult ObterFundo(Guid id,[FromBody]FundoCapital fundo){
-            var fundoAntigo = _repositorio.ObterPorId(id);
-            if (fundoAntigo == null){
+        [HttpDelete("v1/student/{id}")]
+        public IActionResult RemoveStudent(int id,[FromBody]Student student){
+            var studentAntigo = _repositorio.ById(id);
+            if (studentAntigo == null){
                 return NotFound();
             }
-            return Ok(fundoAntigo);
-        }
-
-        [HttpDelete("v1/fundoscapital/{id}")]
-        public IActionResult RemoverFundo(Guid id,[FromBody]FundoCapital fundo){
-            var fundoAntigo = _repositorio.ObterPorId(id);
-            if (fundoAntigo == null){
-                return NotFound();
-            }
-            _repositorio.RemoverFundo(fundo);
+            _repositorio.Remove(student);
             return Ok();
         }
-
     }
-
-
-    
 }
